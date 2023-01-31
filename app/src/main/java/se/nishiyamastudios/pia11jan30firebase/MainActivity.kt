@@ -28,10 +28,10 @@ class MainActivity : AppCompatActivity() {
         loadFruits()
 
         findViewById<Button>(R.id.addFruitButton).setOnClickListener {
+            var addfruitname = findViewById<EditText>(R.id.addFruitET).text.toString()
 
             val database = Firebase.database
             val fruitSallad = database.getReference("fruitsallad")
-            var addfruitname = findViewById<EditText>(R.id.addFruitET).text.toString()
             val somefruit = Fruit(addfruitname, "")
             fruitSallad.push().setValue(somefruit)
 
